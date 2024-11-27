@@ -59,15 +59,12 @@ class Library:
         return False
 
     def search_books(self, key: str, value: str) -> List[Book]:
-        """Ищет книги по ключу (title, author, year)."""
         return [book for book in self.books if str(getattr(book, key, "")).lower() == value.lower()]
 
     def list_books(self) -> List[Book]:
-        """Возвращает список всех книг."""
         return self.books
 
     def update_status(self, book_id: int, new_status: str) -> bool:
-        """Обновляет статус книги."""
         for book in self.books:
             if book.id == book_id:
                 if new_status in ["в наличии", "выдана"]:
